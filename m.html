@@ -1,0 +1,99 @@
+<!DOCtype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Батискаф</title>
+<meta charset="UTF-8">
+</head>
+<style>
+p.mini
+{
+  margin-top:1px;
+  margin-bottom:1px;
+}
+ fieldset
+{
+ border: 10px solid red;
+ border-radius:5px;
+}
+.game_form
+{
+  display:none;
+}
+</style>
+<body onload="Informing()">
+<!--Начальное меню-->
+<div class=start_form id=start_menu>
+<button type=button onclick="begin_play()">Начать игру</button>
+</div>
+<!------------------------>
+<!--Начало основной формы-->
+<div class=game_form id=game_menu>
+<table>
+  <tr>
+     <td  valign="top">
+       <fieldset style="height:200px">
+       <legend id=bath_action_legend>Действия</legend>
+       <select Id=bath_action size=5>
+         <option class=prik value="v0">Сбросить балласт</option>
+         <option value="v1">Увеличить тягу на 10 миль</option>
+         <option value="v2">Уменьшить тягу на 10 миль</option>
+         <option value="v3">Повернуть батискаф</option>
+         <option value="v4">Ничего не делать</option>
+       </select>
+       </fieldset>
+     </td>
+     <td>
+      <fieldset style="height:200px">
+       <legend>Текущее состояние</legend>
+       <p class=mini id=sea_vector>Направление течения</p>
+       <p class=mini id=sea_sp>Скорость течения</p>
+       <p class=mini id=sp_bath>Скорость батискафа</p>
+	   <p class=mini id=vertical_speed_bath>Скорость погружения</p>
+	   <p class=mini id=vector_bath>Направление батискафа</p>
+       <p class=mini id=below_bath>Текущая глубина</p>
+       <p class=mini id=coord_bath>Текущие координаты: X- ; Y-</p>
+	   <p class=mini id=ballast_bath>Количество балласта</p>
+      </fieldset>
+     </td>
+  </tr>
+  <tr>
+    <td valign="top" >
+     <table>
+      <tr>
+        <td>
+          <button type=button onclick="main_action()">Выполнить </button>
+        </td>
+        <td style="padding-left:70px">
+          <button type=button onclick="check()">Рестарт</button>
+        </td>
+      </tr>
+    </table>
+    <td>
+     <fieldset>
+       <legend>Требования</legend>
+       <p class=mini id=r_p1>Координаты: X- ;Y-</p>
+       <p class=mini id=r_p2></p>
+      </fieldset>
+    </td>
+  <tr>
+  </table>
+</div>
+  <!--Конец основной формы-->
+  <!--Модальная форма проигрыша-->
+<div>
+
+</div>
+  <!--Модальная форма победы-->
+  <!-------------------------->
+</body>
+<!--Скрипты-->
+<script type="text/javascript" src="script.js"></script>
+<script>
+function begin_play()
+{
+ document.getElementById("start_menu").style.display="none";
+ document.getElementById("game_menu").style.display="block";
+}
+</script>
+</html>
